@@ -1,0 +1,97 @@
+<ContentDialog
+    x:Class="PosPia.TicketVistaPreviaDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PosPia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:modelos="using:PosPia.Modelos"
+    mc:Ignorable="d"
+    Title="Ticket — vista previa"
+    CloseButtonText="Cerrar"
+    Background="#FFFFFF"
+    Foreground="#12344D">
+
+    <Grid MinWidth="400" MaxHeight="500">
+        <Grid.Resources>
+            <local:StringFormatConverter x:Key="StringFormatConverter"/>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#12344D" Padding="12" CornerRadius="2" Margin="0,0,0,12">
+            <StackPanel Spacing="2">
+                <TextBlock Text="RICOS JOCHOS" FontSize="18" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock Text="¡Gracias por tu compra en Ricos Jochos!" Foreground="#9ED8DE" HorizontalAlignment="Center" FontSize="12"/>
+                <TextBlock x:Name="FechaTextBlock" Text="Fecha: —" Foreground="#9ED8DE" HorizontalAlignment="Center" FontSize="12" Margin="0,6,0,0"/>
+                <TextBlock x:Name="IdVentaTextBlock" Text="Folio: 0000" Foreground="#9ED8DE" HorizontalAlignment="Center" FontSize="12"/>
+                <TextBlock x:Name="ClienteTextBlock" Text="Cliente: Público General" Foreground="White" HorizontalAlignment="Center" FontWeight="SemiBold" Margin="0,6,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <ListView Grid.Row="1" x:Name="ItemsTicketListView"
+                  BorderBrush="#D0E0E6" BorderThickness="0,1,0,1"
+                  Padding="0,8,0,8">
+            <ListView.Header>
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Cant." FontWeight="Bold"/>
+                    <TextBlock Grid.Column="1" Text="Concepto" FontWeight="Bold" Margin="8,0,0,0"/>
+                    <TextBlock Grid.Column="2" Text="Importe" FontWeight="Bold" HorizontalAlignment="Right"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="modelos:CarritoItem">
+                    <Grid HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" FontWeight="SemiBold" VerticalAlignment="Center">
+                            <Run Text="{Binding Cantidad}"/>
+                            <Run Text="×"/>
+                        </TextBlock>
+                        <StackPanel Grid.Column="1" Margin="8,0,0,0">
+                            <TextBlock Text="{Binding Nombre}"/>
+                            <TextBlock Text="{Binding PrecioUnitario, ConverterParameter='C2', Converter={StaticResource StringFormatConverter}}"
+                                       Foreground="#5A7A8A" FontSize="12"/>
+                        </StackPanel>
+                        <TextBlock Grid.Column="2"
+                                   Text="{Binding Subtotal, ConverterParameter='C2', Converter={StaticResource StringFormatConverter}}"
+                                   HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <StackPanel Grid.Row="2" Margin="0,12,0,0" Spacing="4">
+            <Grid>
+                <TextBlock Text="Subtotal"/>
+                <TextBlock x:Name="SubtotalTicketTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#5A7A8A"/>
+            </Grid>
+            <Grid>
+                <TextBlock Text="IVA (16%)"/>
+                <TextBlock x:Name="IvaTicketTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#5A7A8A"/>
+            </Grid>
+            <Grid>
+                <TextBlock Text="Total" FontWeight="Bold" FontSize="18"/>
+                <TextBlock x:Name="TotalTicketTextBlock" Text="$0.00" FontWeight="Bold" FontSize="18"
+                           HorizontalAlignment="Right" Foreground="#0E7C86"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</ContentDialog>

@@ -1,0 +1,109 @@
+<Window
+    x:Class="Punto_de_venta.ClientesWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:modelos="using:PosPia.Modelos"
+    mc:Ignorable="d"
+    Title="Ricos Jochos — Clientes">
+
+    <Grid x:Name="RootGrid" Background="#F4F8FA" Loaded="RootGrid_Loaded">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#12344D" Padding="20,0">
+            <Grid>
+                <TextBlock Text="Directorio de clientes" FontSize="20" FontWeight="Bold"
+                           Foreground="White" VerticalAlignment="Center"/>
+                <Button Content="Volver"
+                        Background="#0E7C86" Foreground="White" BorderThickness="0"
+                        HorizontalAlignment="Right" VerticalAlignment="Center"
+                        Padding="16,8" Click="OnRegresarClick"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Margin="20" Background="#FFFFFF" BorderBrush="#B8D0DA" BorderThickness="1" CornerRadius="4">
+            <ListView x:Name="ClientesGrid"
+                      SelectionMode="Single"
+                      SelectionChanged="ClientesGrid_SelectionChanged"
+                      Background="Transparent"
+                      Foreground="#12344D">
+                <ListView.Header>
+                    <Grid Background="#E8F1F5" Padding="12,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="ID" Grid.Column="0" FontWeight="Bold"/>
+                        <TextBlock Text="Nombre" Grid.Column="1" FontWeight="Bold"/>
+                        <TextBlock Text="Empresa" Grid.Column="2" FontWeight="Bold"/>
+                        <TextBlock Text="Teléfono" Grid.Column="3" FontWeight="Bold"/>
+                        <TextBlock Text="RFC" Grid.Column="4" FontWeight="Bold"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="modelos:Cliente">
+                        <Grid Padding="8,6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding IdCliente}" Grid.Column="0" Foreground="#0E7C86"/>
+                            <TextBlock Text="{Binding Nombre}" Grid.Column="1"/>
+                            <TextBlock Text="{Binding Empresa}" Grid.Column="2"/>
+                            <TextBlock Text="{Binding Telefono}" Grid.Column="3"/>
+                            <TextBlock Text="{Binding RFC}" Grid.Column="4" Foreground="#5A7A8A"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Border>
+
+        <Border Grid.Row="2" Background="#FFFFFF" BorderBrush="#D0E0E6" BorderThickness="0,1,0,0" Padding="20,16">
+            <StackPanel Spacing="10">
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="TxtNombre" PlaceholderText="Nombre" Grid.Column="0"
+                             Background="#F4F8FA" Foreground="#12344D" BorderBrush="#8FB4C2"
+                             BeforeTextChanging="TxtNombre_BeforeTextChanging"/>
+                    <TextBox x:Name="TxtEmpresa" PlaceholderText="Empresa" Grid.Column="1"
+                             Background="#F4F8FA" Foreground="#12344D" BorderBrush="#8FB4C2"/>
+                </Grid>
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="TxtTelefono" PlaceholderText="Teléfono (10 dígitos)" Grid.Column="0"
+                             InputScope="TelephoneNumber" Background="#F4F8FA" Foreground="#12344D"
+                             BorderBrush="#8FB4C2" MaxLength="10"
+                             BeforeTextChanging="TxtTelefono_BeforeTextChanging"/>
+                    <TextBox x:Name="TxtRFC" PlaceholderText="RFC" Grid.Column="1"
+                             Background="#F4F8FA" Foreground="#12344D" BorderBrush="#8FB4C2"
+                             MaxLength="13" BeforeTextChanging="TxtRFC_BeforeTextChanging"/>
+                </Grid>
+                <TextBox x:Name="TxtDireccion" PlaceholderText="Dirección (opcional)"
+                         Background="#F4F8FA" Foreground="#12344D" BorderBrush="#8FB4C2"/>
+                <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Right">
+                    <Button Content="Alta" Background="#0E7C86" Foreground="White" BorderThickness="0" Click="OnAgregarClick"/>
+                    <Button Content="Editar" Background="#FFFFFF" Foreground="#12344D" BorderBrush="#0E7C86" BorderThickness="1" Click="OnModificarClick"/>
+                    <Button Content="Baja" Background="Transparent" Foreground="#C0392B" BorderBrush="#C0392B" BorderThickness="1" Click="OnEliminarClick"/>
+                    <Button Content="Limpiar campos" Background="#E8F1F5" Foreground="#12344D" BorderThickness="0" Click="OnLimpiarClick"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

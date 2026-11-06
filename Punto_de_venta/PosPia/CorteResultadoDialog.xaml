@@ -1,0 +1,91 @@
+<ContentDialog
+    x:Class="PosPia.CorteResultadoDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PosPia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:modelos="using:PosPia.Modelos"
+    mc:Ignorable="d"
+    Title="Corte de caja — Ricos Jochos"
+    CloseButtonText="Cerrar"
+    Background="#FFFFFF"
+    Foreground="#12344D">
+
+    <Grid MinWidth="500" MaxHeight="600">
+        <Grid.Resources>
+            <local:StringFormatConverter x:Key="StringFormatConverter"/>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#E8F1F5" Padding="14" CornerRadius="2">
+            <StackPanel Spacing="10">
+                <Grid>
+                    <TextBlock Text="Total vendido" FontSize="16" FontWeight="Bold"/>
+                    <TextBlock x:Name="TotalVendidoTextBlock" Text="$0.00" FontSize="16" FontWeight="Bold"
+                               HorizontalAlignment="Right" Foreground="#0E7C86"/>
+                </Grid>
+                <Grid>
+                    <TextBlock Text="Tickets emitidos" Foreground="#5A7A8A"/>
+                    <TextBlock x:Name="CantidadTicketsTextBlock" Text="0" HorizontalAlignment="Right" Foreground="#5A7A8A"/>
+                </Grid>
+                <Grid>
+                    <TextBlock Text="Efectivo" Foreground="#5A7A8A"/>
+                    <TextBlock x:Name="TotalEfectivoTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#5A7A8A"/>
+                </Grid>
+                <Grid>
+                    <TextBlock Text="Transferencias" Foreground="#5A7A8A"/>
+                    <TextBlock x:Name="TotalTransferenciaTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#5A7A8A"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Grid.Row="1" Text="Detalle de productos del día"
+                   FontSize="15" FontWeight="SemiBold" Margin="0,16,0,8"/>
+
+        <ListView Grid.Row="2" x:Name="VentasDetalladasListView">
+            <ListView.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto" MinWidth="50"/>
+                        <ColumnDefinition Width="Auto" MinWidth="80"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Producto" FontWeight="SemiBold"/>
+                    <TextBlock Grid.Column="1" Text="Cant." FontWeight="SemiBold" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Column="2" Text="Total" FontWeight="SemiBold" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Column="3" Text="Cliente" FontWeight="SemiBold" Margin="12,0,0,0"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="modelos:VentaDetalladaItem">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto" MinWidth="50"/>
+                            <ColumnDefinition Width="Auto" MinWidth="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding NombreProducto}"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Cantidad}" HorizontalAlignment="Right"/>
+                        <TextBlock Grid.Column="2"
+                                   Text="{Binding Subtotal, ConverterParameter='C2', Converter={StaticResource StringFormatConverter}}"
+                                   HorizontalAlignment="Right" Foreground="#0E7C86"/>
+                        <TextBlock Grid.Column="3" Text="{Binding NombreCliente}" Foreground="#5A7A8A" Margin="12,0,0,0"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+    </Grid>
+</ContentDialog>
