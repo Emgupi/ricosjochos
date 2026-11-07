@@ -10,7 +10,8 @@
     Title="Ticket - vista previa"
     CloseButtonText="Cerrar"
     Background="#FFFFFF"
-    Foreground="#12344D">
+    Foreground="#12344D"
+    RequestedTheme="Light">
 
     <Grid MinWidth="400" MaxHeight="500">
         <Grid.Resources>

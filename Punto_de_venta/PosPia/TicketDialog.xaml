@@ -13,7 +13,8 @@
     Background="#FFFFFF"
     Foreground="#12344D"
     BorderBrush="#0E7C86"
-    BorderThickness="1">
+    BorderThickness="1"
+    RequestedTheme="Light">
 
     <ContentDialog.Resources>
         <Style TargetType="TextBlock">
@@ -54,11 +55,11 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Margin="0,0,8,0" FontWeight="SemiBold">
+                        <TextBlock Grid.Column="0" Margin="0,0,8,0" FontWeight="SemiBold" Foreground="#12344D">
                             <Run Text="{Binding Cantidad}"/>
                             <Run Text="×"/>
                         </TextBlock>
-                        <TextBlock Grid.Column="1" Text="{Binding Nombre}"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Nombre}" Foreground="#12344D"/>
                         <TextBlock Grid.Column="2"
                                    Text="{Binding Subtotal, ConverterParameter='C2', Converter={StaticResource StringFormatConverter}}"
                                    HorizontalAlignment="Right"

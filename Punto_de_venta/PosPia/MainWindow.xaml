@@ -7,7 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:modelos="using:PosPia.Modelos"
     mc:Ignorable="d"
-    Title="Ricos Jochos - Venta">
+    Title="Ricos Jochos - Venta"
+    RequestedTheme="Light">
 
     <Grid Background="#F4F8FA">
         <Grid.Resources>

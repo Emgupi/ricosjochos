@@ -10,7 +10,8 @@
     Title="Corte de caja - Ricos Jochos"
     CloseButtonText="Cerrar"
     Background="#FFFFFF"
-    Foreground="#12344D">
+    Foreground="#12344D"
+    RequestedTheme="Light">
 
     <Grid MinWidth="500" MaxHeight="600">
         <Grid.Resources>
