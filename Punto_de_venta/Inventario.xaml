@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:modelos="using:PosPia.Modelos"
     mc:Ignorable="d"
-    Title="Ricos Jochos — Inventario"
+    Title="Ricos Jochos - Inventario"
     xmlns:converters="using:PosPia">
 
     <Grid Background="#F4F8FA" Padding="0" Loaded="RootGrid_Loaded" x:Name="RootGrid">

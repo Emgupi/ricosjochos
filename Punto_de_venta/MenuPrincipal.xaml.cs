@@ -17,7 +17,7 @@ namespace Punto_de_venta
             this.InitializeComponent();
             _currentUser = user;
             SetWindowSize(800, 700);
-            this.Title = $"Ricos Jochos — {_currentUser.Username}";
+            this.Title = $"Ricos Jochos - {_currentUser.Username}";
             ApplyRoleRestrictions();
         }
 
@@ -30,7 +30,7 @@ namespace Punto_de_venta
         }
         private void ApplyRoleRestrictions()
         {
-            RoleTextBlock.Text = $"Sesión: {_currentUser.Username}  ·  {_currentUser.Role}";
+            RoleTextBlock.Text = $"Sesión: {_currentUser.Username}  -  {_currentUser.Role}";
 
             InventarioButton.Visibility = _currentUser.Role == "Gerente"
                 ? Visibility.Visible

@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:modelos="using:PosPia.Modelos"
     mc:Ignorable="d"
-    Title="Corte de caja — Ricos Jochos"
+    Title="Corte de caja - Ricos Jochos"
     CloseButtonText="Cerrar"
     Background="#FFFFFF"
     Foreground="#12344D">

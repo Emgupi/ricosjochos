@@ -2,7 +2,7 @@
     x:Class="Punto_de_venta.Menu_principal"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Ricos Jochos — Panel">
+    Title="Ricos Jochos - Panel">
 
     <Grid Background="#F4F8FA">
         <Grid.RowDefinitions>

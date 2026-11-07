@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:modelos="using:PosPia.Modelos"
     mc:Ignorable="d"
-    Title="Ticket — vista previa"
+    Title="Ticket - vista previa"
     CloseButtonText="Cerrar"
     Background="#FFFFFF"
     Foreground="#12344D">
@@ -27,7 +27,7 @@
             <StackPanel Spacing="2">
                 <TextBlock Text="RICOS JOCHOS" FontSize="18" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
                 <TextBlock Text="¡Gracias por tu compra en Ricos Jochos!" Foreground="#9ED8DE" HorizontalAlignment="Center" FontSize="12"/>
-                <TextBlock x:Name="FechaTextBlock" Text="Fecha: —" Foreground="#9ED8DE" HorizontalAlignment="Center" FontSize="12" Margin="0,6,0,0"/>
+                <TextBlock x:Name="FechaTextBlock" Text="Fecha: -" Foreground="#9ED8DE" HorizontalAlignment="Center" FontSize="12" Margin="0,6,0,0"/>
                 <TextBlock x:Name="IdVentaTextBlock" Text="Folio: 0000" Foreground="#9ED8DE" HorizontalAlignment="Center" FontSize="12"/>
                 <TextBlock x:Name="ClienteTextBlock" Text="Cliente: Público General" Foreground="White" HorizontalAlignment="Center" FontWeight="SemiBold" Margin="0,6,0,0"/>
             </StackPanel>

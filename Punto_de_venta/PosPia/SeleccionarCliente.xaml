@@ -49,7 +49,7 @@
                         <TextBlock Text="{Binding Nombre}" FontWeight="SemiBold"/>
                         <TextBlock Foreground="#5A7A8A" FontSize="12">
                             <Run Text="{Binding Empresa}"/>
-                            <Run Text=" · "/>
+                            <Run Text=" - "/>
                             <Run Text="{Binding RFC}"/>
                         </TextBlock>
                     </StackPanel>

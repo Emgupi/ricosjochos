@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:modelos="using:PosPia.Modelos"
     mc:Ignorable="d"
-    Title="Ricos Jochos — Clientes">
+    Title="Ricos Jochos - Clientes">
 
     <Grid x:Name="RootGrid" Background="#F4F8FA" Loaded="RootGrid_Loaded">
         <Grid.RowDefinitions>
