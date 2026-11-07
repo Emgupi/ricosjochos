@@ -80,7 +80,18 @@ namespace Punto_de_venta
                 return;
             }
 
-            DatabaseHelper.GuardarFondoDelDia(fondo);
+            if (!DatabaseHelper.GuardarFondoDelDia(fondo))
+            {
+                var abierta = new ContentDialog
+                {
+                    Title = "Caja ya abierta",
+                    Content = "Ya hay una apertura activa. Primero haz el corte de caja.",
+                    CloseButtonText = "Aceptar",
+                    XamlRoot = this.Content.XamlRoot,
+                    RequestedTheme = ElementTheme.Light
+                };
+                await abierta.ShowAsync();
+            }
         }
 
         private async void OnRealizarVentaClick(object sender, RoutedEventArgs e)

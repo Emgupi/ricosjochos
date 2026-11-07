@@ -319,8 +319,21 @@ namespace PosPia
             
             if (resultado == ContentDialogResult.Primary)
             {
+                if (!DatabaseHelper.HayAperturaHoy())
+                {
+                    ContentDialog sinCaja = new ContentDialog
+                    {
+                        Title = "Sin caja abierta",
+                        Content = "No hay una apertura activa. Abre la caja antes de hacer el corte.",
+                        CloseButtonText = "Aceptar",
+                        XamlRoot = fe.XamlRoot
+                    };
+                    await sinCaja.ShowAsync();
+                    return;
+                }
 
                 CorteDeCaja corte = DatabaseHelper.GetCorteDeCajaHoy();
+                DatabaseHelper.CerrarCajaDelDia();
 
                 CorteResultadoDialog resultadoDialog = new CorteResultadoDialog(corte);
                 resultadoDialog.XamlRoot = fe.XamlRoot;

@@ -121,6 +121,16 @@ namespace PosPia
             var createCommand = connection.CreateCommand();
             createCommand.CommandText = sqlBuilder.ToString();
             createCommand.ExecuteNonQuery();
+
+            try
+            {
+                var alterar = connection.CreateCommand();
+                alterar.CommandText = "ALTER TABLE AperturasCaja ADD COLUMN Cerrada INTEGER NOT NULL DEFAULT 0;";
+                alterar.ExecuteNonQuery();
+            }
+            catch
+            {
+            }
         }
         #endregion
 
@@ -314,14 +324,17 @@ namespace PosPia
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT COUNT(1) FROM AperturasCaja WHERE Fecha = @Fecha;";
+                command.CommandText = "SELECT COUNT(1) FROM AperturasCaja WHERE Fecha = @Fecha AND Cerrada = 0;";
                 command.Parameters.AddWithValue("@Fecha", DateTime.Now.ToString("yyyy-MM-dd"));
                 return Convert.ToInt32(command.ExecuteScalar()) > 0;
             }
         }
 
-        public static void GuardarFondoDelDia(double fondo)
+        public static bool GuardarFondoDelDia(double fondo)
         {
+            if (HayAperturaHoy())
+                return false;
+
             using (var connection = GetConnection())
             {
                 connection.Open();
@@ -334,12 +347,26 @@ namespace PosPia
 
                 var command = connection.CreateCommand();
                 if (cuantos > 0)
-                    command.CommandText = "UPDATE AperturasCaja SET Fondo = @Fondo WHERE Fecha = @Fecha;";
+                    command.CommandText = "UPDATE AperturasCaja SET Fondo = @Fondo, Cerrada = 0 WHERE Fecha = @Fecha;";
                 else
-                    command.CommandText = "INSERT INTO AperturasCaja (Fecha, Fondo) VALUES (@Fecha, @Fondo);";
+                    command.CommandText = "INSERT INTO AperturasCaja (Fecha, Fondo, Cerrada) VALUES (@Fecha, @Fondo, 0);";
 
                 command.Parameters.AddWithValue("@Fecha", fecha);
                 command.Parameters.AddWithValue("@Fondo", fondo);
+                command.ExecuteNonQuery();
+            }
+
+            return true;
+        }
+
+        public static void CerrarCajaDelDia()
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = "UPDATE AperturasCaja SET Cerrada = 1 WHERE Fecha = @Fecha AND Cerrada = 0;";
+                command.Parameters.AddWithValue("@Fecha", DateTime.Now.ToString("yyyy-MM-dd"));
                 command.ExecuteNonQuery();
             }
         }
