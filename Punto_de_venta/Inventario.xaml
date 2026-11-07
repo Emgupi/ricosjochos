@@ -30,7 +30,7 @@
                 <TextBlock Text="Inventario (ingredientes)" FontSize="20" FontWeight="Bold"
                            Foreground="White" VerticalAlignment="Center"/>
                 <Button Content="Volver"
-                        Background="#0E7C86" Foreground="White" BorderThickness="0"
+                        Style="{StaticResource AccentButtonStyle}"
                         HorizontalAlignment="Right" VerticalAlignment="Center"
                         Padding="16,8" Click="OnRegresarClick"/>
             </Grid>
@@ -92,7 +92,7 @@
                 <TextBox x:Name="TxtStock" PlaceholderText="Stock" InputScope="Number" Width="110"
                          Background="#F4F8FA" Foreground="#12344D" BorderBrush="#8FB4C2"
                          BeforeTextChanging="TxtStock_BeforeTextChanging"/>
-                <Button Content="Alta" Background="#0E7C86" Foreground="White" BorderThickness="0" Click="OnAgregarClick"/>
+                <Button Content="Alta" Style="{StaticResource AccentButtonStyle}" Click="OnAgregarClick"/>
                 <Button Content="Editar" Background="#FFFFFF" Foreground="#12344D" BorderBrush="#0E7C86" BorderThickness="1" Click="OnModificarClick"/>
                 <Button Content="Baja" Background="Transparent" Foreground="#C0392B" BorderBrush="#C0392B" BorderThickness="1" Click="OnEliminarClick"/>
                 <Button Content="Limpiar campos" Background="#E8F1F5" Foreground="#12344D" BorderThickness="0" Click="OnLimpiarClick"/>

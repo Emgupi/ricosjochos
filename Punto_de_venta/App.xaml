@@ -37,7 +37,36 @@
             <SolidColorBrush x:Key="ComboBoxPlaceHolderForeground" Color="#5A7A8A"/>
             <SolidColorBrush x:Key="ComboBoxPlaceHolderForegroundFocused" Color="#5A7A8A"/>
             <SolidColorBrush x:Key="ComboBoxPlaceHolderForegroundPointerOver" Color="#5A7A8A"/>
+
+            <!-- Botones normales: texto oscuro también en hover/pressed -->
+            <SolidColorBrush x:Key="ButtonForeground" Color="#12344D"/>
+            <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="#12344D"/>
+            <SolidColorBrush x:Key="ButtonForegroundPressed" Color="#12344D"/>
+            <SolidColorBrush x:Key="ButtonForegroundDisabled" Color="#8FB4C2"/>
+            <SolidColorBrush x:Key="ButtonBackground" Color="#FFFFFF"/>
+            <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#E8F1F5"/>
+            <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="#D0E4EC"/>
+            <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="#F4F8FA"/>
+            <SolidColorBrush x:Key="ButtonBorderBrush" Color="#8FB4C2"/>
+            <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="#0E7C86"/>
+            <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="#0E7C86"/>
+            <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="#D0E0E6"/>
+
+            <!-- Botones de acento (teal): texto blanco en todos los estados -->
+            <SolidColorBrush x:Key="AccentButtonBackground" Color="#0E7C86"/>
+            <SolidColorBrush x:Key="AccentButtonBackgroundPointerOver" Color="#0A6169"/>
+            <SolidColorBrush x:Key="AccentButtonBackgroundPressed" Color="#084E55"/>
+            <SolidColorBrush x:Key="AccentButtonBackgroundDisabled" Color="#A8D5D9"/>
+            <SolidColorBrush x:Key="AccentButtonForeground" Color="#FFFFFF"/>
+            <SolidColorBrush x:Key="AccentButtonForegroundPointerOver" Color="#FFFFFF"/>
+            <SolidColorBrush x:Key="AccentButtonForegroundPressed" Color="#FFFFFF"/>
+            <SolidColorBrush x:Key="AccentButtonForegroundDisabled" Color="#F4F8FA"/>
+            <SolidColorBrush x:Key="AccentButtonBorderBrush" Color="#0E7C86"/>
+            <SolidColorBrush x:Key="AccentButtonBorderBrushPointerOver" Color="#0A6169"/>
+            <SolidColorBrush x:Key="AccentButtonBorderBrushPressed" Color="#084E55"/>
+            <SolidColorBrush x:Key="AccentButtonBorderBrushDisabled" Color="#A8D5D9"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
+
 

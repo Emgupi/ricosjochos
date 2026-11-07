@@ -52,9 +52,7 @@
                         Content="Volver al panel"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
-                        Background="#0E7C86"
-                        Foreground="White"
-                        BorderThickness="0"
+                        Style="{StaticResource AccentButtonStyle}"
                         Padding="16,8"
                         Click="RegresarButton_Click"/>
             </Grid>
@@ -65,7 +63,7 @@
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <TextBlock Text="Filtro:" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,0,8,0"/>
                 <Button x:Name="TodosButton" Content="Todos" Padding="14,6" Click="TodosButton_Click"
-                        Background="#0E7C86" Foreground="White" BorderThickness="0"/>
+                        Style="{StaticResource AccentButtonStyle}"/>
                 <ListView x:Name="CategoriasListView"
                           SelectionMode="Single"
                           ItemClick="CategoriasListView_ItemClick"
@@ -173,7 +171,7 @@
                         </Grid.ColumnDefinitions>
                         <Button x:Name="LimpiarButton" Content="Vaciar" HorizontalAlignment="Stretch" Click="BotonLimpiar_Click"/>
                         <Button x:Name="PagarButton" Content="Cobrar" Grid.Column="1" HorizontalAlignment="Stretch"
-                                Background="#0E7C86" Foreground="White" BorderThickness="0"
+                                Style="{StaticResource AccentButtonStyle}"
                                 Click="BotonPagar_Click" IsEnabled="False"/>
                     </Grid>
 
