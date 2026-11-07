@@ -6,6 +6,7 @@ namespace PosPia.Modelos
     public class CorteDeCaja
     {
         public int CantidadTickets { get; set; }
+        public double FondoInicial { get; set; }
         public double TotalVendido { get; set; }
         public double TotalEfectivo { get; set; }
         public double TotalTransferencia { get; set; }

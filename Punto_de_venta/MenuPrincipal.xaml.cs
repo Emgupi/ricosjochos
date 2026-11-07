@@ -1,10 +1,10 @@
 using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 using System;
 using Windows.Graphics;
 using PosPia;
-using Windows.ApplicationModel.VoiceCommands;
 
 namespace Punto_de_venta
 {
@@ -37,8 +37,68 @@ namespace Punto_de_venta
                 : Visibility.Collapsed;
         }
 
-        private void OnRealizarVentaClick(object sender, RoutedEventArgs e)
+        private async void OnAperturaCajaClick(object sender, RoutedEventArgs e)
         {
+            var monto = new TextBox
+            {
+                PlaceholderText = "Fondo inicial (ej. 500)",
+                InputScope = new InputScope { Names = { new InputScopeName(InputScopeNameValue.Number) } }
+            };
+
+            var panel = new StackPanel { Spacing = 10 };
+            panel.Children.Add(new TextBlock
+            {
+                Text = "Captura el efectivo con el que abres la caja hoy.",
+                TextWrapping = TextWrapping.Wrap
+            });
+            panel.Children.Add(monto);
+
+            var dialog = new ContentDialog
+            {
+                Title = "Apertura de caja",
+                Content = panel,
+                PrimaryButtonText = "Guardar fondo",
+                CloseButtonText = "Cancelar",
+                XamlRoot = this.Content.XamlRoot,
+                RequestedTheme = ElementTheme.Light
+            };
+
+            if (await dialog.ShowAsync() != ContentDialogResult.Primary)
+                return;
+
+            if (!double.TryParse(monto.Text, out double fondo) || fondo < 0)
+            {
+                var error = new ContentDialog
+                {
+                    Title = "Monto no válido",
+                    Content = "Escribe un número mayor o igual a 0.",
+                    CloseButtonText = "Aceptar",
+                    XamlRoot = this.Content.XamlRoot,
+                    RequestedTheme = ElementTheme.Light
+                };
+                await error.ShowAsync();
+                return;
+            }
+
+            DatabaseHelper.GuardarFondoDelDia(fondo);
+        }
+
+        private async void OnRealizarVentaClick(object sender, RoutedEventArgs e)
+        {
+            if (!DatabaseHelper.HayAperturaHoy())
+            {
+                var aviso = new ContentDialog
+                {
+                    Title = "Caja sin abrir",
+                    Content = "Primero haz la apertura de caja y captura el fondo.",
+                    CloseButtonText = "Aceptar",
+                    XamlRoot = this.Content.XamlRoot,
+                    RequestedTheme = ElementTheme.Light
+                };
+                await aviso.ShowAsync();
+                return;
+            }
+
             var ventanaLibreria = new PosPia.MainWindow();
             ventanaLibreria.Activate();
         }

@@ -100,6 +100,13 @@ namespace PosPia
 
             
             sqlBuilder.AppendLine(@"
+            CREATE TABLE IF NOT EXISTS AperturasCaja (
+                IdApertura INTEGER PRIMARY KEY AUTOINCREMENT,
+                Fecha TEXT NOT NULL UNIQUE,
+                Fondo REAL NOT NULL
+            );");
+
+            sqlBuilder.AppendLine(@"
             CREATE TABLE IF NOT EXISTS VentaDetalle (
                 IdVentaDetalle INTEGER PRIMARY KEY AUTOINCREMENT,
                 IdVenta INTEGER NOT NULL,
@@ -301,9 +308,50 @@ namespace PosPia
             return clientes;
         }
 
+        public static bool HayAperturaHoy()
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT COUNT(1) FROM AperturasCaja WHERE Fecha = @Fecha;";
+                command.Parameters.AddWithValue("@Fecha", DateTime.Now.ToString("yyyy-MM-dd"));
+                return Convert.ToInt32(command.ExecuteScalar()) > 0;
+            }
+        }
+
+        public static void GuardarFondoDelDia(double fondo)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = @"
+                    INSERT INTO AperturasCaja (Fecha, Fondo) VALUES (@Fecha, @Fondo)
+                    ON CONFLICT(Fecha) DO UPDATE SET Fondo = @Fondo;";
+                command.Parameters.AddWithValue("@Fecha", DateTime.Now.ToString("yyyy-MM-dd"));
+                command.Parameters.AddWithValue("@Fondo", fondo);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public static double GetFondoDelDia()
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT IFNULL(Fondo, 0) FROM AperturasCaja WHERE Fecha = @Fecha;";
+                command.Parameters.AddWithValue("@Fecha", DateTime.Now.ToString("yyyy-MM-dd"));
+                var result = command.ExecuteScalar();
+                return result == null || result == DBNull.Value ? 0 : Convert.ToDouble(result);
+            }
+        }
+
         public static Modelos.CorteDeCaja GetCorteDeCajaHoy()
         {
             Modelos.CorteDeCaja corte = new Modelos.CorteDeCaja();
+            corte.FondoInicial = GetFondoDelDia();
 
             using (var connection = GetConnection())
             {

@@ -10,7 +10,9 @@ namespace PosPia
         {
             this.InitializeComponent();
 
+            FondoTextBlock.Text = corte.FondoInicial.ToString("C2");
             TotalVendidoTextBlock.Text = corte.TotalVendido.ToString("C2");
+            EfectivoEnCajaTextBlock.Text = (corte.FondoInicial + corte.TotalEfectivo).ToString("C2");
             CantidadTicketsTextBlock.Text = corte.CantidadTickets.ToString();
             TotalEfectivoTextBlock.Text = corte.TotalEfectivo.ToString("C2");
             TotalTransferenciaTextBlock.Text = corte.TotalTransferencia.ToString("C2");

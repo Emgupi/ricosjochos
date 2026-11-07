@@ -26,6 +26,10 @@
         <Border Grid.Row="0" Background="#E8F1F5" Padding="14" CornerRadius="2">
             <StackPanel Spacing="10">
                 <Grid>
+                    <TextBlock Text="Fondo inicial"/>
+                    <TextBlock x:Name="FondoTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#0E7C86"/>
+                </Grid>
+                <Grid>
                     <TextBlock Text="Total vendido" FontSize="16" FontWeight="Bold"/>
                     <TextBlock x:Name="TotalVendidoTextBlock" Text="$0.00" FontSize="16" FontWeight="Bold"
                                HorizontalAlignment="Right" Foreground="#0E7C86"/>
@@ -37,6 +41,10 @@
                 <Grid>
                     <TextBlock Text="Efectivo" Foreground="#5A7A8A"/>
                     <TextBlock x:Name="TotalEfectivoTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#5A7A8A"/>
+                </Grid>
+                <Grid>
+                    <TextBlock Text="Efectivo en caja" FontWeight="SemiBold"/>
+                    <TextBlock x:Name="EfectivoEnCajaTextBlock" Text="$0.00" FontWeight="SemiBold" HorizontalAlignment="Right" Foreground="#0E7C86"/>
                 </Grid>
                 <Grid>
                     <TextBlock Text="Transferencias" Foreground="#5A7A8A"/>

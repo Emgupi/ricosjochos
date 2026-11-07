@@ -37,8 +37,20 @@
                            HorizontalAlignment="Center"
                            Margin="0,0,0,8"/>
 
+                <Button x:Name="AperturaButton"
+                        Content="Apertura de caja"
+                        Height="48"
+                        Background="#FFFFFF"
+                        Foreground="#12344D"
+                        BorderBrush="#0E7C86"
+                        BorderThickness="1.5"
+                        FontWeight="SemiBold"
+                        CornerRadius="2"
+                        HorizontalAlignment="Stretch"
+                        Click="OnAperturaCajaClick"/>
+
                 <Button x:Name="VentaButton"
-                        Content="Abrir caja / Venta"
+                        Content="Ir a venta"
                         Height="48"
                         Style="{StaticResource AccentButtonStyle}"
                         FontWeight="SemiBold"
