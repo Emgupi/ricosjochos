@@ -325,11 +325,20 @@ namespace PosPia
             using (var connection = GetConnection())
             {
                 connection.Open();
+                string fecha = DateTime.Now.ToString("yyyy-MM-dd");
+
+                var existe = connection.CreateCommand();
+                existe.CommandText = "SELECT COUNT(1) FROM AperturasCaja WHERE Fecha = @Fecha;";
+                existe.Parameters.AddWithValue("@Fecha", fecha);
+                int cuantos = Convert.ToInt32(existe.ExecuteScalar());
+
                 var command = connection.CreateCommand();
-                command.CommandText = @"
-                    INSERT INTO AperturasCaja (Fecha, Fondo) VALUES (@Fecha, @Fondo)
-                    ON CONFLICT(Fecha) DO UPDATE SET Fondo = @Fondo;";
-                command.Parameters.AddWithValue("@Fecha", DateTime.Now.ToString("yyyy-MM-dd"));
+                if (cuantos > 0)
+                    command.CommandText = "UPDATE AperturasCaja SET Fondo = @Fondo WHERE Fecha = @Fecha;";
+                else
+                    command.CommandText = "INSERT INTO AperturasCaja (Fecha, Fondo) VALUES (@Fecha, @Fondo);";
+
+                command.Parameters.AddWithValue("@Fecha", fecha);
                 command.Parameters.AddWithValue("@Fondo", fondo);
                 command.ExecuteNonQuery();
             }
