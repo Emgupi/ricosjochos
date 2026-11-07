@@ -9,6 +9,35 @@
             <ResourceDictionary.MergedDictionaries>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
             </ResourceDictionary.MergedDictionaries>
+
+            <!-- Texto legible en TextBox/PasswordBox (normal, hover y focus) -->
+            <SolidColorBrush x:Key="TextControlForeground" Color="#12344D"/>
+            <SolidColorBrush x:Key="TextControlForegroundPointerOver" Color="#12344D"/>
+            <SolidColorBrush x:Key="TextControlForegroundFocused" Color="#12344D"/>
+            <SolidColorBrush x:Key="TextControlBackground" Color="#F4F8FA"/>
+            <SolidColorBrush x:Key="TextControlBackgroundPointerOver" Color="#E8F1F5"/>
+            <SolidColorBrush x:Key="TextControlBackgroundFocused" Color="#FFFFFF"/>
+            <SolidColorBrush x:Key="TextControlBorderBrush" Color="#8FB4C2"/>
+            <SolidColorBrush x:Key="TextControlBorderBrushPointerOver" Color="#0E7C86"/>
+            <SolidColorBrush x:Key="TextControlBorderBrushFocused" Color="#0E7C86"/>
+            <SolidColorBrush x:Key="TextControlPlaceholderForeground" Color="#5A7A8A"/>
+            <SolidColorBrush x:Key="TextControlPlaceholderForegroundPointerOver" Color="#5A7A8A"/>
+            <SolidColorBrush x:Key="TextControlPlaceholderForegroundFocused" Color="#8FB4C2"/>
+            <SolidColorBrush x:Key="TextControlButtonForeground" Color="#12344D"/>
+            <SolidColorBrush x:Key="TextControlButtonForegroundPointerOver" Color="#12344D"/>
+
+            <SolidColorBrush x:Key="ComboBoxForeground" Color="#12344D"/>
+            <SolidColorBrush x:Key="ComboBoxForegroundPointerOver" Color="#12344D"/>
+            <SolidColorBrush x:Key="ComboBoxForegroundPressed" Color="#12344D"/>
+            <SolidColorBrush x:Key="ComboBoxForegroundFocused" Color="#12344D"/>
+            <SolidColorBrush x:Key="ComboBoxBackground" Color="#F4F8FA"/>
+            <SolidColorBrush x:Key="ComboBoxBackgroundPointerOver" Color="#E8F1F5"/>
+            <SolidColorBrush x:Key="ComboBoxBackgroundPressed" Color="#E8F1F5"/>
+            <SolidColorBrush x:Key="ComboBoxBackgroundFocused" Color="#FFFFFF"/>
+            <SolidColorBrush x:Key="ComboBoxPlaceHolderForeground" Color="#5A7A8A"/>
+            <SolidColorBrush x:Key="ComboBoxPlaceHolderForegroundFocused" Color="#5A7A8A"/>
+            <SolidColorBrush x:Key="ComboBoxPlaceHolderForegroundPointerOver" Color="#5A7A8A"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
+
