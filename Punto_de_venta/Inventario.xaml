@@ -42,6 +42,12 @@
                       SelectionChanged="MateriaPrimaGrid_SelectionChanged"
                       Background="Transparent"
                       Foreground="#12344D">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Foreground" Value="#12344D"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.Header>
                     <Grid Background="#E8F1F5" Padding="12,10">
                         <Grid.ColumnDefinitions>
@@ -66,8 +72,8 @@
                                 <ColumnDefinition Width="150"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="{x:Bind IdIngrediente}" Grid.Column="0" Foreground="#0E7C86"/>
-                            <TextBlock Text="{x:Bind Nombre}" Grid.Column="1"/>
-                            <TextBlock Text="{x:Bind UnidadMedida}" Grid.Column="2"/>
+                            <TextBlock Text="{x:Bind Nombre}" Grid.Column="1" Foreground="#12344D"/>
+                            <TextBlock Text="{x:Bind UnidadMedida}" Grid.Column="2" Foreground="#12344D"/>
                             <TextBlock Text="{Binding Stock, Converter={StaticResource StringFormatConverter}, ConverterParameter='N5'}"
                                        Grid.Column="3" Foreground="#0E7C86" FontWeight="SemiBold"/>
                         </Grid>

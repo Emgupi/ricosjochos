@@ -131,8 +131,17 @@ namespace PosPia
                         var command = connection.CreateCommand();
                         command.Transaction = transaction;
 
-                        // Avance: tablas listas, sin catálogo real todavía.
-                        // Aquí se cargarán ingredientes, productos, recetas y clientes.
+                        command.CommandText = GetIngredientesData();
+                        command.ExecuteNonQuery();
+
+                        command.CommandText = GetProductosData();
+                        command.ExecuteNonQuery();
+
+                        command.CommandText = GetRecetasData();
+                        command.ExecuteNonQuery();
+
+                        command.CommandText = GetClientesData();
+                        command.ExecuteNonQuery();
 
                         transaction.Commit();
                     }
@@ -145,11 +154,48 @@ namespace PosPia
             }
         }
 
-        // Placeholders: aquí se cargará el inventario, menú y clientes de Ricos Jochos.
-        private static string GetIngredientesData() => string.Empty;
-        private static string GetProductosData() => string.Empty;
-        private static string GetRecetasData() => string.Empty;
-        private static string GetClientesData() => string.Empty;
+        private static string GetIngredientesData()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine("INSERT OR IGNORE INTO Ingredientes (Nombre, Stock, UnidadMedida, Descripcion) VALUES ('Pan para hot dog', 80, 'pz', 'Pan suave para jocho');");
+            sb.AppendLine("INSERT OR IGNORE INTO Ingredientes (Nombre, Stock, UnidadMedida, Descripcion) VALUES ('Salchicha de res', 40, 'pz', 'Salchicha clasica de res');");
+            sb.AppendLine("INSERT OR IGNORE INTO Ingredientes (Nombre, Stock, UnidadMedida, Descripcion) VALUES ('Salchicha de pavo', 30, 'pz', 'Salchicha de pavo');");
+            sb.AppendLine("INSERT OR IGNORE INTO Ingredientes (Nombre, Stock, UnidadMedida, Descripcion) VALUES ('Salchicha jumbo', 20, 'pz', 'Salchicha grande');");
+            sb.AppendLine("INSERT OR IGNORE INTO Ingredientes (Nombre, Stock, UnidadMedida, Descripcion) VALUES ('Queso americano', 25, 'pz', 'Rebanada de queso');");
+            return sb.ToString();
+        }
+
+        private static string GetProductosData()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine("INSERT OR IGNORE INTO Productos (Nombre, Categoria, Precio, Descripcion) VALUES ('Jocho clasico', 'Jocho', 35.00, 'Pan y salchicha de res.');");
+            sb.AppendLine("INSERT OR IGNORE INTO Productos (Nombre, Categoria, Precio, Descripcion) VALUES ('Jocho de pavo', 'Jocho', 38.00, 'Pan y salchicha de pavo.');");
+            sb.AppendLine("INSERT OR IGNORE INTO Productos (Nombre, Categoria, Precio, Descripcion) VALUES ('Jocho con queso', 'Jocho', 42.00, 'Pan, salchicha de res y queso.');");
+            sb.AppendLine("INSERT OR IGNORE INTO Productos (Nombre, Categoria, Precio, Descripcion) VALUES ('Jocho jumbo', 'Jocho', 48.00, 'Pan y salchicha jumbo.');");
+            return sb.ToString();
+        }
+
+        private static string GetRecetasData()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine("INSERT OR IGNORE INTO ProductoIngredientes (IdProducto, IdIngrediente, Cantidad) VALUES ((SELECT IdProducto FROM Productos WHERE Nombre = 'Jocho clasico'), (SELECT IdIngrediente FROM Ingredientes WHERE Nombre = 'Pan para hot dog'), 1);");
+            sb.AppendLine("INSERT OR IGNORE INTO ProductoIngredientes (IdProducto, IdIngrediente, Cantidad) VALUES ((SELECT IdProducto FROM Productos WHERE Nombre = 'Jocho clasico'), (SELECT IdIngrediente FROM Ingredientes WHERE Nombre = 'Salchicha de res'), 1);");
+            sb.AppendLine("INSERT OR IGNORE INTO ProductoIngredientes (IdProducto, IdIngrediente, Cantidad) VALUES ((SELECT IdProducto FROM Productos WHERE Nombre = 'Jocho de pavo'), (SELECT IdIngrediente FROM Ingredientes WHERE Nombre = 'Pan para hot dog'), 1);");
+            sb.AppendLine("INSERT OR IGNORE INTO ProductoIngredientes (IdProducto, IdIngrediente, Cantidad) VALUES ((SELECT IdProducto FROM Productos WHERE Nombre = 'Jocho de pavo'), (SELECT IdIngrediente FROM Ingredientes WHERE Nombre = 'Salchicha de pavo'), 1);");
+            sb.AppendLine("INSERT OR IGNORE INTO ProductoIngredientes (IdProducto, IdIngrediente, Cantidad) VALUES ((SELECT IdProducto FROM Productos WHERE Nombre = 'Jocho con queso'), (SELECT IdIngrediente FROM Ingredientes WHERE Nombre = 'Pan para hot dog'), 1);");
+            sb.AppendLine("INSERT OR IGNORE INTO ProductoIngredientes (IdProducto, IdIngrediente, Cantidad) VALUES ((SELECT IdProducto FROM Productos WHERE Nombre = 'Jocho con queso'), (SELECT IdIngrediente FROM Ingredientes WHERE Nombre = 'Salchicha de res'), 1);");
+            sb.AppendLine("INSERT OR IGNORE INTO ProductoIngredientes (IdProducto, IdIngrediente, Cantidad) VALUES ((SELECT IdProducto FROM Productos WHERE Nombre = 'Jocho con queso'), (SELECT IdIngrediente FROM Ingredientes WHERE Nombre = 'Queso americano'), 1);");
+            sb.AppendLine("INSERT OR IGNORE INTO ProductoIngredientes (IdProducto, IdIngrediente, Cantidad) VALUES ((SELECT IdProducto FROM Productos WHERE Nombre = 'Jocho jumbo'), (SELECT IdIngrediente FROM Ingredientes WHERE Nombre = 'Pan para hot dog'), 1);");
+            sb.AppendLine("INSERT OR IGNORE INTO ProductoIngredientes (IdProducto, IdIngrediente, Cantidad) VALUES ((SELECT IdProducto FROM Productos WHERE Nombre = 'Jocho jumbo'), (SELECT IdIngrediente FROM Ingredientes WHERE Nombre = 'Salchicha jumbo'), 1);");
+            return sb.ToString();
+        }
+
+        private static string GetClientesData()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine("INSERT OR IGNORE INTO Clientes (Nombre, Empresa, Telefono, Direccion, RFC) VALUES ('Publico General', 'N/A', '0000000000', 'Mostrador', 'XAXX010101000');");
+            return sb.ToString();
+        }
         #endregion
 
 
