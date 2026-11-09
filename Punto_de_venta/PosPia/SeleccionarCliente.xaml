@@ -12,29 +12,29 @@
     CloseButtonText="Cancelar"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
     Background="#FFFFFF"
-    Foreground="#12344D"
-    BorderBrush="#0E7C86"
+    Foreground="#43262B"
+    BorderBrush="#D62828"
     BorderThickness="1"
     RequestedTheme="Light">
 
     <ContentDialog.Resources>
         <Style TargetType="TextBlock">
-            <Setter Property="Foreground" Value="#12344D"/>
+            <Setter Property="Foreground" Value="#43262B"/>
         </Style>
         <Style TargetType="Button">
-            <Setter Property="Background" Value="#F4F8FA"/>
-            <Setter Property="Foreground" Value="#12344D"/>
-            <Setter Property="BorderBrush" Value="#8FB4C2"/>
+            <Setter Property="Background" Value="#FFF8EC"/>
+            <Setter Property="Foreground" Value="#43262B"/>
+            <Setter Property="BorderBrush" Value="#E0B377"/>
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
         <Style TargetType="ListView">
-            <Setter Property="Background" Value="#F4F8FA"/>
-            <Setter Property="Foreground" Value="#12344D"/>
+            <Setter Property="Background" Value="#FFF8EC"/>
+            <Setter Property="Foreground" Value="#43262B"/>
         </Style>
         <Style TargetType="ListViewItem">
             <Setter Property="Background" Value="#FFFFFF"/>
-            <Setter Property="Foreground" Value="#12344D"/>
-            <Setter Property="BorderBrush" Value="#D0E0E6"/>
+            <Setter Property="Foreground" Value="#43262B"/>
+            <Setter Property="BorderBrush" Value="#F1DDBB"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Margin" Value="0,3"/>
         </Style>
@@ -48,7 +48,7 @@
                 <DataTemplate x:DataType="modelos:Cliente">
                     <StackPanel Padding="8,6">
                         <TextBlock Text="{Binding Nombre}" FontWeight="SemiBold"/>
-                        <TextBlock Foreground="#5A7A8A" FontSize="12">
+                        <TextBlock Foreground="#8A6355" FontSize="12">
                             <Run Text="{Binding Empresa}"/>
                             <Run Text=" - "/>
                             <Run Text="{Binding RFC}"/>

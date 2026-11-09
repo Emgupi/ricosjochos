@@ -12,38 +12,38 @@
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
     Background="#FFFFFF"
-    Foreground="#12344D"
-    BorderBrush="#0E7C86"
+    Foreground="#43262B"
+    BorderBrush="#D62828"
     BorderThickness="1"
     RequestedTheme="Light">
 
     <ContentDialog.Resources>
         <Style TargetType="Button">
-            <Setter Property="Background" Value="#F4F8FA"/>
-            <Setter Property="Foreground" Value="#12344D"/>
-            <Setter Property="BorderBrush" Value="#8FB4C2"/>
+            <Setter Property="Background" Value="#FFF8EC"/>
+            <Setter Property="Foreground" Value="#43262B"/>
+            <Setter Property="BorderBrush" Value="#E0B377"/>
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
         <Style TargetType="TextBlock">
-            <Setter Property="Foreground" Value="#12344D"/>
+            <Setter Property="Foreground" Value="#43262B"/>
         </Style>
         <Style TargetType="RadioButton">
-            <Setter Property="Foreground" Value="#12344D"/>
+            <Setter Property="Foreground" Value="#43262B"/>
         </Style>
         <Style TargetType="TextBox">
-            <Setter Property="Background" Value="#F4F8FA"/>
-            <Setter Property="Foreground" Value="#12344D"/>
-            <Setter Property="BorderBrush" Value="#8FB4C2"/>
+            <Setter Property="Background" Value="#FFF8EC"/>
+            <Setter Property="Foreground" Value="#43262B"/>
+            <Setter Property="BorderBrush" Value="#E0B377"/>
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
     </ContentDialog.Resources>
 
     <StackPanel Spacing="14">
-        <Border Background="#E8F1F5" Padding="12" CornerRadius="2">
+        <Border Background="#FDF0D5" Padding="12" CornerRadius="2">
             <Grid>
-                <TextBlock Text="Importe a cobrar" FontSize="14" Foreground="#5A7A8A"/>
+                <TextBlock Text="Importe a cobrar" FontSize="14" Foreground="#8A6355"/>
                 <TextBlock x:Name="TotalPagarTextBlock" Text="$0.00"
-                           FontSize="26" FontWeight="Bold" Foreground="#0E7C86"
+                           FontSize="26" FontWeight="Bold" Foreground="#D62828"
                            HorizontalAlignment="Right"/>
             </Grid>
         </Border>
@@ -72,7 +72,7 @@
             <Grid>
                 <TextBlock Text="Cambio" FontSize="16" FontWeight="SemiBold"/>
                 <TextBlock x:Name="CambioTextBlock" Text="$0.00" FontSize="16" FontWeight="Bold"
-                           Foreground="#0E7C86" HorizontalAlignment="Right"/>
+                           Foreground="#D62828" HorizontalAlignment="Right"/>
             </Grid>
         </StackPanel>
     </StackPanel>

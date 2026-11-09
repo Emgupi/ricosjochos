@@ -8,14 +8,14 @@
     mc:Ignorable="d"
     Title="Ricos Jochos - Clientes">
 
-    <Grid x:Name="RootGrid" Background="#F4F8FA" Loaded="RootGrid_Loaded">
+    <Grid x:Name="RootGrid" Background="#FFF8EC" Loaded="RootGrid_Loaded">
         <Grid.RowDefinitions>
             <RowDefinition Height="64"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="#12344D" Padding="20,0">
+        <Border Grid.Row="0" Background="#43262B" BorderBrush="#FFC93C" BorderThickness="0,0,0,4" Padding="20,0">
             <Grid>
                 <TextBlock Text="Directorio de clientes" FontSize="20" FontWeight="Bold"
                            Foreground="White" VerticalAlignment="Center"/>
@@ -26,20 +26,20 @@
             </Grid>
         </Border>
 
-        <Border Grid.Row="1" Margin="20" Background="#FFFFFF" BorderBrush="#B8D0DA" BorderThickness="1" CornerRadius="4">
+        <Border Grid.Row="1" Margin="20" Background="#FFFFFF" BorderBrush="#E8C99A" BorderThickness="1" CornerRadius="4">
             <ListView x:Name="ClientesGrid"
                       SelectionMode="Single"
                       SelectionChanged="ClientesGrid_SelectionChanged"
                       Background="Transparent"
-                      Foreground="#12344D">
+                      Foreground="#43262B">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
-                        <Setter Property="Foreground" Value="#12344D"/>
+                        <Setter Property="Foreground" Value="#43262B"/>
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                     </Style>
                 </ListView.ItemContainerStyle>
                 <ListView.Header>
-                    <Grid Background="#E8F1F5" Padding="12,10">
+                    <Grid Background="#FDF0D5" Padding="12,10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="50"/>
                             <ColumnDefinition Width="2*"/>
@@ -64,18 +64,18 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding IdCliente}" Grid.Column="0" Foreground="#0E7C86"/>
-                            <TextBlock Text="{Binding Nombre}" Grid.Column="1" Foreground="#12344D"/>
-                            <TextBlock Text="{Binding Empresa}" Grid.Column="2" Foreground="#12344D"/>
-                            <TextBlock Text="{Binding Telefono}" Grid.Column="3" Foreground="#12344D"/>
-                            <TextBlock Text="{Binding RFC}" Grid.Column="4" Foreground="#12344D"/>
+                            <TextBlock Text="{Binding IdCliente}" Grid.Column="0" Foreground="#D62828"/>
+                            <TextBlock Text="{Binding Nombre}" Grid.Column="1" Foreground="#43262B"/>
+                            <TextBlock Text="{Binding Empresa}" Grid.Column="2" Foreground="#43262B"/>
+                            <TextBlock Text="{Binding Telefono}" Grid.Column="3" Foreground="#43262B"/>
+                            <TextBlock Text="{Binding RFC}" Grid.Column="4" Foreground="#43262B"/>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </Border>
 
-        <Border Grid.Row="2" Background="#FFFFFF" BorderBrush="#D0E0E6" BorderThickness="0,1,0,0" Padding="20,16">
+        <Border Grid.Row="2" Background="#FFFFFF" BorderBrush="#F1DDBB" BorderThickness="0,1,0,0" Padding="20,16">
             <StackPanel Spacing="10">
                 <Grid ColumnSpacing="10">
                     <Grid.ColumnDefinitions>
@@ -83,10 +83,10 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <TextBox x:Name="TxtNombre" PlaceholderText="Nombre" Grid.Column="0"
-                             Background="#F4F8FA" Foreground="#12344D" BorderBrush="#8FB4C2"
+                             Background="#FFF8EC" Foreground="#43262B" BorderBrush="#E0B377"
                              BeforeTextChanging="TxtNombre_BeforeTextChanging"/>
                     <TextBox x:Name="TxtEmpresa" PlaceholderText="Empresa" Grid.Column="1"
-                             Background="#F4F8FA" Foreground="#12344D" BorderBrush="#8FB4C2"/>
+                             Background="#FFF8EC" Foreground="#43262B" BorderBrush="#E0B377"/>
                 </Grid>
                 <Grid ColumnSpacing="10">
                     <Grid.ColumnDefinitions>
@@ -94,20 +94,20 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <TextBox x:Name="TxtTelefono" PlaceholderText="Teléfono (10 dígitos)" Grid.Column="0"
-                             InputScope="TelephoneNumber" Background="#F4F8FA" Foreground="#12344D"
-                             BorderBrush="#8FB4C2" MaxLength="10"
+                             InputScope="TelephoneNumber" Background="#FFF8EC" Foreground="#43262B"
+                             BorderBrush="#E0B377" MaxLength="10"
                              BeforeTextChanging="TxtTelefono_BeforeTextChanging"/>
                     <TextBox x:Name="TxtRFC" PlaceholderText="RFC" Grid.Column="1"
-                             Background="#F4F8FA" Foreground="#12344D" BorderBrush="#8FB4C2"
+                             Background="#FFF8EC" Foreground="#43262B" BorderBrush="#E0B377"
                              MaxLength="13" BeforeTextChanging="TxtRFC_BeforeTextChanging"/>
                 </Grid>
                 <TextBox x:Name="TxtDireccion" PlaceholderText="Dirección (opcional)"
-                         Background="#F4F8FA" Foreground="#12344D" BorderBrush="#8FB4C2"/>
+                         Background="#FFF8EC" Foreground="#43262B" BorderBrush="#E0B377"/>
                 <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Right">
                     <Button Content="Alta" Style="{StaticResource AccentButtonStyle}" Click="OnAgregarClick"/>
-                    <Button Content="Editar" Background="#FFFFFF" Foreground="#12344D" BorderBrush="#0E7C86" BorderThickness="1" Click="OnModificarClick"/>
+                    <Button Content="Editar" Background="#FFFFFF" Foreground="#43262B" BorderBrush="#D62828" BorderThickness="1" Click="OnModificarClick"/>
                     <Button Content="Baja" Background="Transparent" Foreground="#C0392B" BorderBrush="#C0392B" BorderThickness="1" Click="OnEliminarClick"/>
-                    <Button Content="Limpiar campos" Background="#E8F1F5" Foreground="#12344D" BorderThickness="0" Click="OnLimpiarClick"/>
+                    <Button Content="Limpiar campos" Background="#FDF0D5" Foreground="#43262B" BorderThickness="0" Click="OnLimpiarClick"/>
                 </StackPanel>
             </StackPanel>
         </Border>

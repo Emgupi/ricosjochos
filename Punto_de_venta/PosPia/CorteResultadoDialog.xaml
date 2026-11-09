@@ -10,7 +10,7 @@
     Title="Corte de caja - Ricos Jochos"
     CloseButtonText="Cerrar"
     Background="#FFFFFF"
-    Foreground="#12344D"
+    Foreground="#43262B"
     RequestedTheme="Light">
 
     <Grid MinWidth="500" MaxHeight="600">
@@ -24,32 +24,32 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="#E8F1F5" Padding="14" CornerRadius="2">
+        <Border Grid.Row="0" Background="#FDF0D5" Padding="14" CornerRadius="2">
             <StackPanel Spacing="10">
                 <Grid>
                     <TextBlock Text="Fondo inicial"/>
-                    <TextBlock x:Name="FondoTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#0E7C86"/>
+                    <TextBlock x:Name="FondoTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#D62828"/>
                 </Grid>
                 <Grid>
                     <TextBlock Text="Total vendido" FontSize="16" FontWeight="Bold"/>
                     <TextBlock x:Name="TotalVendidoTextBlock" Text="$0.00" FontSize="16" FontWeight="Bold"
-                               HorizontalAlignment="Right" Foreground="#0E7C86"/>
+                               HorizontalAlignment="Right" Foreground="#D62828"/>
                 </Grid>
                 <Grid>
-                    <TextBlock Text="Tickets emitidos" Foreground="#5A7A8A"/>
-                    <TextBlock x:Name="CantidadTicketsTextBlock" Text="0" HorizontalAlignment="Right" Foreground="#5A7A8A"/>
+                    <TextBlock Text="Tickets emitidos" Foreground="#8A6355"/>
+                    <TextBlock x:Name="CantidadTicketsTextBlock" Text="0" HorizontalAlignment="Right" Foreground="#8A6355"/>
                 </Grid>
                 <Grid>
-                    <TextBlock Text="Efectivo" Foreground="#5A7A8A"/>
-                    <TextBlock x:Name="TotalEfectivoTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#5A7A8A"/>
+                    <TextBlock Text="Efectivo" Foreground="#8A6355"/>
+                    <TextBlock x:Name="TotalEfectivoTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#8A6355"/>
                 </Grid>
                 <Grid>
                     <TextBlock Text="Efectivo en caja" FontWeight="SemiBold"/>
-                    <TextBlock x:Name="EfectivoEnCajaTextBlock" Text="$0.00" FontWeight="SemiBold" HorizontalAlignment="Right" Foreground="#0E7C86"/>
+                    <TextBlock x:Name="EfectivoEnCajaTextBlock" Text="$0.00" FontWeight="SemiBold" HorizontalAlignment="Right" Foreground="#D62828"/>
                 </Grid>
                 <Grid>
-                    <TextBlock Text="Transferencias" Foreground="#5A7A8A"/>
-                    <TextBlock x:Name="TotalTransferenciaTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#5A7A8A"/>
+                    <TextBlock Text="Transferencias" Foreground="#8A6355"/>
+                    <TextBlock x:Name="TotalTransferenciaTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#8A6355"/>
                 </Grid>
             </StackPanel>
         </Border>
@@ -85,8 +85,8 @@
                         <TextBlock Grid.Column="1" Text="{Binding Cantidad}" HorizontalAlignment="Right"/>
                         <TextBlock Grid.Column="2"
                                    Text="{Binding Subtotal, ConverterParameter='C2', Converter={StaticResource StringFormatConverter}}"
-                                   HorizontalAlignment="Right" Foreground="#0E7C86"/>
-                        <TextBlock Grid.Column="3" Text="{Binding NombreCliente}" Foreground="#5A7A8A" Margin="12,0,0,0"/>
+                                   HorizontalAlignment="Right" Foreground="#D62828"/>
+                        <TextBlock Grid.Column="3" Text="{Binding NombreCliente}" Foreground="#8A6355" Margin="12,0,0,0"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

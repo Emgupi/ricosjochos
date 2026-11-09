@@ -11,29 +11,29 @@
     PrimaryButtonText="Imprimir"
     CloseButtonText="Cerrar"
     Background="#FFFFFF"
-    Foreground="#12344D"
-    BorderBrush="#0E7C86"
+    Foreground="#43262B"
+    BorderBrush="#D62828"
     BorderThickness="1"
     RequestedTheme="Light">
 
     <ContentDialog.Resources>
         <Style TargetType="TextBlock">
-            <Setter Property="Foreground" Value="#12344D"/>
+            <Setter Property="Foreground" Value="#43262B"/>
         </Style>
         <Style TargetType="Button">
-            <Setter Property="Background" Value="#F4F8FA"/>
-            <Setter Property="Foreground" Value="#12344D"/>
-            <Setter Property="BorderBrush" Value="#8FB4C2"/>
+            <Setter Property="Background" Value="#FFF8EC"/>
+            <Setter Property="Foreground" Value="#43262B"/>
+            <Setter Property="BorderBrush" Value="#E0B377"/>
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
         <Style TargetType="ListView">
-            <Setter Property="Background" Value="#F4F8FA"/>
-            <Setter Property="Foreground" Value="#12344D"/>
+            <Setter Property="Background" Value="#FFF8EC"/>
+            <Setter Property="Foreground" Value="#43262B"/>
         </Style>
         <Style TargetType="ListViewItem">
             <Setter Property="Background" Value="#FFFFFF"/>
-            <Setter Property="Foreground" Value="#12344D"/>
-            <Setter Property="BorderBrush" Value="#D0E0E6"/>
+            <Setter Property="Foreground" Value="#43262B"/>
+            <Setter Property="BorderBrush" Value="#F1DDBB"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Margin" Value="0,2"/>
         </Style>
@@ -55,25 +55,25 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Margin="0,0,8,0" FontWeight="SemiBold" Foreground="#12344D">
+                        <TextBlock Grid.Column="0" Margin="0,0,8,0" FontWeight="SemiBold" Foreground="#43262B">
                             <Run Text="{Binding Cantidad}"/>
                             <Run Text="×"/>
                         </TextBlock>
-                        <TextBlock Grid.Column="1" Text="{Binding Nombre}" Foreground="#12344D"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Nombre}" Foreground="#43262B"/>
                         <TextBlock Grid.Column="2"
                                    Text="{Binding Subtotal, ConverterParameter='C2', Converter={StaticResource StringFormatConverter}}"
                                    HorizontalAlignment="Right"
-                                   Foreground="#0E7C86"/>
+                                   Foreground="#D62828"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <Border Grid.Row="1" Margin="0,12,0,0" BorderThickness="0,1,0,0" BorderBrush="#D0E0E6" Padding="0,12,0,0">
+        <Border Grid.Row="1" Margin="0,12,0,0" BorderThickness="0,1,0,0" BorderBrush="#F1DDBB" Padding="0,12,0,0">
             <Grid>
                 <TextBlock Text="Total" FontSize="18" FontWeight="Bold"/>
                 <TextBlock x:Name="TotalTicketTextBlock" Text="$0.00" FontSize="18" FontWeight="Bold"
-                           HorizontalAlignment="Right" Foreground="#0E7C86"/>
+                           HorizontalAlignment="Right" Foreground="#D62828"/>
             </Grid>
         </Border>
     </Grid>

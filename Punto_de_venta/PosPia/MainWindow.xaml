@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Title="Ricos Jochos - Venta">
 
-    <Grid Background="#F4F8FA">
+    <Grid Background="#FFF8EC">
         <Grid.Resources>
             <local:StringFormatConverter x:Key="StringFormatConverter"/>
             <local:BoolToOpacityConverter x:Key="BoolToOpacityConverter"/>
@@ -23,14 +23,14 @@
 
             <Style TargetType="Button">
                 <Setter Property="Background" Value="#FFFFFF"/>
-                <Setter Property="Foreground" Value="#12344D"/>
-                <Setter Property="BorderBrush" Value="#8FB4C2"/>
+                <Setter Property="Foreground" Value="#43262B"/>
+                <Setter Property="BorderBrush" Value="#E0B377"/>
                 <Setter Property="BorderThickness" Value="1"/>
                 <Setter Property="CornerRadius" Value="2"/>
             </Style>
 
             <Style TargetType="TextBlock">
-                <Setter Property="Foreground" Value="#12344D"/>
+                <Setter Property="Foreground" Value="#43262B"/>
             </Style>
         </Grid.Resources>
 
@@ -41,12 +41,13 @@
         </Grid.RowDefinitions>
 
         <!-- Barra superior -->
-        <Border Grid.Row="0" Background="#12344D" Padding="16,0">
+        <Border Grid.Row="0" Background="#43262B" BorderBrush="#FFC93C" BorderThickness="0,0,0,4" Padding="16,0">
             <Grid>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="12">
+                    <Image Source="ms-appx:///Assets/logo_jochos.png" Height="52" Stretch="Uniform"/>
                     <TextBlock Text="RICOS JOCHOS" FontSize="18" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
-                    <TextBlock Text="|" Foreground="#5A8A9A" VerticalAlignment="Center"/>
-                    <TextBlock Text="Caja / venta" Foreground="#9ED8DE" VerticalAlignment="Center" FontSize="13"/>
+                    <TextBlock Text="|" Foreground="#A87C6E" VerticalAlignment="Center"/>
+                    <TextBlock Text="Caja / venta" Foreground="#FFC93C" VerticalAlignment="Center" FontSize="13"/>
                 </StackPanel>
                 <Button x:Name="RegresarButton"
                         Content="Volver al panel"
@@ -59,7 +60,7 @@
         </Border>
 
         <!-- Categorías horizontales -->
-        <Border Grid.Row="1" Background="#FFFFFF" BorderBrush="#D0E0E6" BorderThickness="0,0,0,1" Padding="12,10">
+        <Border Grid.Row="1" Background="#FFFFFF" BorderBrush="#F1DDBB" BorderThickness="0,0,0,1" Padding="12,10">
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <TextBlock Text="Filtro:" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,0,8,0"/>
                 <Button x:Name="TodosButton" Content="Todos" Padding="14,6" Click="TodosButton_Click"
@@ -85,9 +86,9 @@
                         <Style TargetType="ListViewItem">
                             <Setter Property="Padding" Value="0"/>
                             <Setter Property="Margin" Value="0,0,6,0"/>
-                            <Setter Property="Background" Value="#E8F1F5"/>
-                            <Setter Property="Foreground" Value="#12344D"/>
-                            <Setter Property="BorderBrush" Value="#8FB4C2"/>
+                            <Setter Property="Background" Value="#FDF0D5"/>
+                            <Setter Property="Foreground" Value="#43262B"/>
+                            <Setter Property="BorderBrush" Value="#E0B377"/>
                             <Setter Property="BorderThickness" Value="1"/>
                             <Setter Property="MinWidth" Value="0"/>
                         </Style>
@@ -104,7 +105,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- Pedido (izquierda) -->
-            <Border Grid.Column="0" Background="#FFFFFF" BorderBrush="#B8D0DA" BorderThickness="1" CornerRadius="4" Margin="0,0,10,0">
+            <Border Grid.Column="0" Background="#FFFFFF" BorderBrush="#E8C99A" BorderThickness="1" CornerRadius="4" Margin="0,0,10,0">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -115,19 +116,19 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <Border Grid.Row="0" Background="#0E7C86" Padding="14,12" CornerRadius="4,4,0,0">
+                    <Border Grid.Row="0" Background="#D62828" Padding="14,12" CornerRadius="4,4,0,0">
                         <TextBlock Text="Pedido en curso" FontSize="16" FontWeight="SemiBold" Foreground="White"/>
                     </Border>
 
                     <StackPanel Grid.Row="1" Margin="12,10,12,8" Orientation="Horizontal">
                         <TextBlock Text="Cliente:" FontWeight="SemiBold" Margin="0,0,8,0"/>
-                        <TextBlock x:Name="ClienteActualTextBlock" Text="Público General" Foreground="#5A7A8A"/>
+                        <TextBlock x:Name="ClienteActualTextBlock" Text="Público General" Foreground="#8A6355"/>
                     </StackPanel>
 
                     <ListView Grid.Row="2" x:Name="CarritoListView" SelectionMode="None" Background="Transparent" Padding="8,0">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="modelos:CarritoItem">
-                                <Border Background="#F4F8FA" BorderBrush="#D0E0E6" BorderThickness="1" CornerRadius="2" Padding="10,8" Margin="0,3">
+                                <Border Background="#FFF8EC" BorderBrush="#F1DDBB" BorderThickness="1" CornerRadius="2" Padding="10,8" Margin="0,3">
                                     <Grid HorizontalAlignment="Stretch">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
@@ -136,7 +137,7 @@
                                         <StackPanel Grid.Column="0">
                                             <TextBlock Text="{Binding Nombre}" FontWeight="SemiBold" TextWrapping="Wrap"/>
                                             <TextBlock Text="{Binding Subtotal, ConverterParameter='C2', Converter={StaticResource StringFormatConverter}}"
-                                                       Foreground="#0E7C86" FontSize="13"/>
+                                                       Foreground="#D62828" FontSize="13"/>
                                         </StackPanel>
                                         <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Spacing="4">
                                             <Button Content="−" Width="30" Height="30" Click="BotonMenos_Click" DataContext="{Binding}"/>
@@ -149,18 +150,18 @@
                         </ListView.ItemTemplate>
                     </ListView>
 
-                    <StackPanel Grid.Row="3" Margin="12" BorderThickness="0,1,0,0" BorderBrush="#D0E0E6" Padding="0,12,0,0" Spacing="4">
+                    <StackPanel Grid.Row="3" Margin="12" BorderThickness="0,1,0,0" BorderBrush="#F1DDBB" Padding="0,12,0,0" Spacing="4">
                         <Grid>
                             <TextBlock Text="Subtotal"/>
-                            <TextBlock x:Name="SubtotalTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#0E7C86"/>
+                            <TextBlock x:Name="SubtotalTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#D62828"/>
                         </Grid>
                         <Grid>
                             <TextBlock Text="IVA (16%)"/>
-                            <TextBlock x:Name="IVATextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#0E7C86"/>
+                            <TextBlock x:Name="IVATextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#D62828"/>
                         </Grid>
                         <Grid Margin="0,6,0,0">
                             <TextBlock Text="Total" FontSize="18" FontWeight="Bold"/>
-                            <TextBlock x:Name="TotalTextBlock" Text="$0.00" FontSize="18" FontWeight="Bold" HorizontalAlignment="Right" Foreground="#12344D"/>
+                            <TextBlock x:Name="TotalTextBlock" Text="$0.00" FontSize="18" FontWeight="Bold" HorizontalAlignment="Right" Foreground="#43262B"/>
                         </Grid>
                     </StackPanel>
 
@@ -191,7 +192,7 @@
 
                 <StackPanel Grid.Row="0" Margin="4,0,0,10" Spacing="2">
                     <TextBlock Text="Menú de jochos" FontSize="18" FontWeight="SemiBold"/>
-                    <TextBlock Text="Catalogo preliminar" FontSize="12" Foreground="#5A7A8A"/>
+                    <TextBlock Text="Catalogo preliminar" FontSize="12" Foreground="#8A6355"/>
                 </StackPanel>
 
                 <GridView Grid.Row="1"
@@ -204,7 +205,7 @@
                         <DataTemplate x:DataType="modelos:Producto">
                             <Border MinHeight="110" MinWidth="170"
                                     Background="#FFFFFF"
-                                    BorderBrush="#D0E0E6"
+                                    BorderBrush="#F1DDBB"
                                     BorderThickness="1"
                                     CornerRadius="4"
                                     Opacity="{Binding EstaDisponible, Converter={StaticResource BoolToOpacityConverter}}">
@@ -213,12 +214,12 @@
                                         <ColumnDefinition Width="5"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Border Grid.Column="0" Background="#0E7C86" CornerRadius="4,0,0,4"/>
+                                    <Border Grid.Column="0" Background="#D62828" CornerRadius="4,0,0,4"/>
                                     <StackPanel Grid.Column="1" Padding="12" Spacing="4">
                                         <TextBlock Text="{Binding Nombre}" FontSize="15" FontWeight="SemiBold" TextWrapping="Wrap"/>
-                                        <TextBlock Text="{Binding Descripcion}" FontSize="11" Foreground="#5A7A8A" TextWrapping="Wrap"/>
+                                        <TextBlock Text="{Binding Descripcion}" FontSize="11" Foreground="#8A6355" TextWrapping="Wrap"/>
                                         <TextBlock Text="{Binding Precio, ConverterParameter='C2', Converter={StaticResource StringFormatConverter}}"
-                                                   FontSize="15" FontWeight="Bold" Foreground="#0E7C86"
+                                                   FontSize="15" FontWeight="Bold" Foreground="#D62828"
                                                    HorizontalAlignment="Right" Margin="0,6,0,0"/>
                                     </StackPanel>
                                 </Grid>

@@ -4,22 +4,25 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Ricos Jochos - Panel">
 
-    <Grid Background="#F4F8FA">
+    <Grid Background="#FFF8EC">
         <Grid.RowDefinitions>
             <RowDefinition Height="72"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="#12344D" Padding="24,0">
+        <Border Grid.Row="0" Background="#43262B" BorderBrush="#FFC93C" BorderThickness="0,0,0,4" Padding="24,0">
             <Grid>
-                <TextBlock Text="RICOS JOCHOS"
-                           FontSize="20"
-                           FontWeight="Bold"
-                           Foreground="White"
-                           VerticalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+                    <Image Source="ms-appx:///Assets/logo_jochos.png" Height="60" Stretch="Uniform"/>
+                    <TextBlock Text="RICOS JOCHOS"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
                 <TextBlock x:Name="RoleTextBlock"
                            FontSize="14"
-                           Foreground="#9ED8DE"
+                           Foreground="#FFC93C"
                            HorizontalAlignment="Right"
                            VerticalAlignment="Center"/>
             </Grid>
@@ -31,9 +34,15 @@
                         Spacing="12"
                         Width="320">
 
+                <Image Source="ms-appx:///Assets/logo_jochos.png"
+                       Height="150"
+                       Stretch="Uniform"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,8"/>
+
                 <TextBlock Text="¿Qué deseas hacer?"
                            FontSize="16"
-                           Foreground="#5A7A8A"
+                           Foreground="#8A6355"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,8"/>
 
@@ -41,8 +50,8 @@
                         Content="Apertura de caja"
                         Height="48"
                         Background="#FFFFFF"
-                        Foreground="#12344D"
-                        BorderBrush="#0E7C86"
+                        Foreground="#43262B"
+                        BorderBrush="#D62828"
                         BorderThickness="1.5"
                         FontWeight="SemiBold"
                         CornerRadius="2"
@@ -62,8 +71,8 @@
                         Content="Inventario de ingredientes"
                         Height="48"
                         Background="#FFFFFF"
-                        Foreground="#12344D"
-                        BorderBrush="#0E7C86"
+                        Foreground="#43262B"
+                        BorderBrush="#D62828"
                         BorderThickness="1.5"
                         FontWeight="SemiBold"
                         CornerRadius="2"
@@ -74,8 +83,8 @@
                         Content="Directorio de clientes"
                         Height="48"
                         Background="#FFFFFF"
-                        Foreground="#12344D"
-                        BorderBrush="#8FB4C2"
+                        Foreground="#43262B"
+                        BorderBrush="#E0B377"
                         BorderThickness="1.5"
                         FontWeight="SemiBold"
                         CornerRadius="2"

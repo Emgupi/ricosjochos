@@ -10,7 +10,7 @@
     Title="Ticket - vista previa"
     CloseButtonText="Cerrar"
     Background="#FFFFFF"
-    Foreground="#12344D"
+    Foreground="#43262B"
     RequestedTheme="Light">
 
     <Grid MinWidth="400" MaxHeight="500">
@@ -24,18 +24,18 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="#12344D" Padding="12" CornerRadius="2" Margin="0,0,0,12">
+        <Border Grid.Row="0" Background="#43262B" BorderBrush="#FFC93C" BorderThickness="0,0,0,4" Padding="12" CornerRadius="2" Margin="0,0,0,12">
             <StackPanel Spacing="2">
                 <TextBlock Text="RICOS JOCHOS" FontSize="18" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
-                <TextBlock Text="¡Gracias por tu compra en Ricos Jochos!" Foreground="#9ED8DE" HorizontalAlignment="Center" FontSize="12"/>
-                <TextBlock x:Name="FechaTextBlock" Text="Fecha: -" Foreground="#9ED8DE" HorizontalAlignment="Center" FontSize="12" Margin="0,6,0,0"/>
-                <TextBlock x:Name="IdVentaTextBlock" Text="Folio: 0000" Foreground="#9ED8DE" HorizontalAlignment="Center" FontSize="12"/>
+                <TextBlock Text="¡Gracias por tu compra en Ricos Jochos!" Foreground="#FFC93C" HorizontalAlignment="Center" FontSize="12"/>
+                <TextBlock x:Name="FechaTextBlock" Text="Fecha: -" Foreground="#FFC93C" HorizontalAlignment="Center" FontSize="12" Margin="0,6,0,0"/>
+                <TextBlock x:Name="IdVentaTextBlock" Text="Folio: 0000" Foreground="#FFC93C" HorizontalAlignment="Center" FontSize="12"/>
                 <TextBlock x:Name="ClienteTextBlock" Text="Cliente: Público General" Foreground="White" HorizontalAlignment="Center" FontWeight="SemiBold" Margin="0,6,0,0"/>
             </StackPanel>
         </Border>
 
         <ListView Grid.Row="1" x:Name="ItemsTicketListView"
-                  BorderBrush="#D0E0E6" BorderThickness="0,1,0,1"
+                  BorderBrush="#F1DDBB" BorderThickness="0,1,0,1"
                   Padding="0,8,0,8">
             <ListView.Header>
                 <Grid HorizontalAlignment="Stretch">
@@ -64,7 +64,7 @@
                         <StackPanel Grid.Column="1" Margin="8,0,0,0">
                             <TextBlock Text="{Binding Nombre}"/>
                             <TextBlock Text="{Binding PrecioUnitario, ConverterParameter='C2', Converter={StaticResource StringFormatConverter}}"
-                                       Foreground="#5A7A8A" FontSize="12"/>
+                                       Foreground="#8A6355" FontSize="12"/>
                         </StackPanel>
                         <TextBlock Grid.Column="2"
                                    Text="{Binding Subtotal, ConverterParameter='C2', Converter={StaticResource StringFormatConverter}}"
@@ -82,16 +82,16 @@
         <StackPanel Grid.Row="2" Margin="0,12,0,0" Spacing="4">
             <Grid>
                 <TextBlock Text="Subtotal"/>
-                <TextBlock x:Name="SubtotalTicketTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#5A7A8A"/>
+                <TextBlock x:Name="SubtotalTicketTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#8A6355"/>
             </Grid>
             <Grid>
                 <TextBlock Text="IVA (16%)"/>
-                <TextBlock x:Name="IvaTicketTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#5A7A8A"/>
+                <TextBlock x:Name="IvaTicketTextBlock" Text="$0.00" HorizontalAlignment="Right" Foreground="#8A6355"/>
             </Grid>
             <Grid>
                 <TextBlock Text="Total" FontWeight="Bold" FontSize="18"/>
                 <TextBlock x:Name="TotalTicketTextBlock" Text="$0.00" FontWeight="Bold" FontSize="18"
-                           HorizontalAlignment="Right" Foreground="#0E7C86"/>
+                           HorizontalAlignment="Right" Foreground="#D62828"/>
             </Grid>
         </StackPanel>
     </Grid>

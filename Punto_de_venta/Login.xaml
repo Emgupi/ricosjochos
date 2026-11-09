@@ -7,8 +7,8 @@
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#E8F1F5" Offset="0"/>
-                <GradientStop Color="#D0E4EC" Offset="1"/>
+                <GradientStop Color="#FDF0D5" Offset="0"/>
+                <GradientStop Color="#FBE3A6" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
 
@@ -19,16 +19,13 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,24">
-            <TextBlock Text="RICOS JOCHOS"
-                       FontFamily="Segoe UI Semibold"
-                       FontSize="34"
-                       FontWeight="Bold"
-                       Foreground="#12344D"
-                       HorizontalAlignment="Center"
-                       CharacterSpacing="100"/>
+            <Image Source="ms-appx:///Assets/logo_jochos.png"
+                   Height="170"
+                   Stretch="Uniform"
+                   HorizontalAlignment="Center"/>
             <TextBlock Text="Punto de venta - hot dogs"
                        FontSize="13"
-                       Foreground="#5A7A8A"
+                       Foreground="#8A6355"
                        HorizontalAlignment="Center"
                        Margin="0,6,0,0"/>
         </StackPanel>
@@ -39,21 +36,21 @@
                 CornerRadius="4"
                 HorizontalAlignment="Center"
                 Width="380"
-                BorderBrush="#B8D0DA"
+                BorderBrush="#E8C99A"
                 BorderThickness="1">
             <StackPanel Spacing="14">
                 <TextBlock Text="Iniciar sesión"
                            FontSize="18"
                            FontWeight="SemiBold"
-                           Foreground="#12344D"/>
+                           Foreground="#43262B"/>
 
                 <TextBox x:Name="UsernameTextBox"
                          PlaceholderText="Usuario"
                          FontSize="15"
                          Padding="12,10"
-                         Background="#F4F8FA"
-                         Foreground="#12344D"
-                         BorderBrush="#8FB4C2"
+                         Background="#FFF8EC"
+                         Foreground="#43262B"
+                         BorderBrush="#E0B377"
                          BorderThickness="1"
                          CornerRadius="2"/>
 
@@ -61,9 +58,9 @@
                              PlaceholderText="Contraseña"
                              FontSize="15"
                              Padding="12,10"
-                             Background="#F4F8FA"
-                             Foreground="#12344D"
-                             BorderBrush="#8FB4C2"
+                             Background="#FFF8EC"
+                             Foreground="#43262B"
+                             BorderBrush="#E0B377"
                              BorderThickness="1"
                              CornerRadius="2"/>
 
